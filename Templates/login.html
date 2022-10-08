@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <script src="{{ url_for('static', filename='js/validacion.js') }}"></script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/miEstilo.css') }}">
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    
+</head>
+<body>
+    <section>
+    <div class="container-fluid d-flex">
+        <div class="col-6">
+            <img width="70%" src="https://apollo-virginia.akamaized.net/v1/files/98kyj4i9pkzx2-CO/image;s=850x0" alt="">
+        </div>
+        <div class="col-6">
+        <h1>Login</h1>
+        <form action="" method="post" name="loginForm">      
+            <label for="username">Usuario:</label>
+            <input type="text" name="username" id="username" placeholder="Ej: Picapiedra">
+            <br>       
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" id="password" >
+            <img src="{{ url_for('static', filename='images/view.png') }}" width="5%" alt="" onmouseover="mostrarPassword()" onmouseout="ocultarPassword()">
+            <br>
+            <button type="submit" value="Enviar">Enviar</button> 
+            
+        </form>
+        <h5 class="text-center mt-3">No tienes una cuenta? Regístrate <a href="{{ url_for('register') }}" >aquí</a></h5> 
+    </section>
+    
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            {% if category == 'error' %}
+                <script>
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        text: "{{message}}",
+                        showConfirmButton: true,
+                        timer: 5000
+                    })
+                </script>
+            {% endif %}
+            {% if category == 'success' %}
+                <script>
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        text: "{{message}}",
+                        showConfirmButton: true,
+                        timer: 5000
+                    })
+                </script>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith  %}
+</body>
+</html>
