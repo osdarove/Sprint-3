@@ -3,12 +3,12 @@ function validar_formulario() {
     let email = document.formRegistro.correo;
     let password = document.formRegistro.password;
   
-    let username_len = username.value.length;
+    /* let username_len = username.value.length;
     if (username_len == 0 || username_len < 8) {
       alert("Debes ingresar un username con min. 8 caracteres");
       passid.focus();
       return false;
-    }
+    } */
   
     let formato_email = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
     if (!email.value.match(formato_email)) {

@@ -5,22 +5,19 @@
         <div class="container-fluid d-flex">            
             <div class="col-10">
                 <form class="card mt-5 p-5" method="post">
-                    <h3 class="text-center">Publicar mensaje</h3>
+                    <h3 class="text-center">Enviar mensaje</h3>
+                    
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Tu id</label>
-                        <input name="nombre" type="nombre" class="form-control" id="nombre" aria-describedby="emailHelp">                      
+                        <label for="para" class="form-label">Para </label>
+                        <input name="para"  class="form-control" id="para" aria-describedby="emailHelp">                      
                     </div>
                     <div class="mb-3">
-                        <label for="descripcion" class="form-label">Para </label>
-                        <input name="descripcion" type="text" class="form-control" id="descripcion" aria-describedby="emailHelp">                      
+                        <label for="asunto" class="form-label">Asunto</label>
+                        <input name="asunto"  class="form-control" id="asunto" aria-describedby="emailHelp">                      
                     </div>
                     <div class="mb-3">
-                        <label for="precio" class="form-label">Asunto</label>
-                        <input name="precio" type="text" class="form-control" id="precio" aria-describedby="emailHelp">                      
-                    </div>
-                    <div class="mb-3">
-                        <label for="stock" class="form-label">Mensaje</label>
-                        <input name="stock" type="text" class="form-control" id="stock" aria-describedby="emailHelp">                      
+                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <input name="mensaje"  class="form-control" id="mensaje" aria-describedby="emailHelp">                      
                     </div>
                                              
                     
@@ -31,34 +28,6 @@
         </div>
     </section>
 
-    {% with messages = get_flashed_messages(with_categories=True) %}
-    {% if messages %}
-        {% for category, message in messages %}
-            {% if category == 'error' %}
-                <script>
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'error',
-                        text: "{{message}}",
-                        showConfirmButton: true,
-                        timer: 5000
-                    })
-                </script>
-            {% endif %}
-            {% if category == 'success' %}
-                <script>
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        text: "{{message}}",
-                        showConfirmButton: true,
-                        timer: 5000
-                    })
-                </script>
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-{% endwith  %}
-
+  
     
 {% endblock %}

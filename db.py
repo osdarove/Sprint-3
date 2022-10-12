@@ -1,16 +1,16 @@
 import sqlite3
 from sqlite3 import Error
-from flask import g
+from flask import current_app, g
 
 
 def get_db():
     try:
         if 'db' not in g:
-            print('conectada')
-            g.db = sqlite3.connect('database.db')
+            g.db = sqlite3.connect("database.db")
+            g.db.row_factory = sqlite3.Row
         return g.db
     except Error:
-        print(Error)
+        print( Error )
 
 
 def close_db():
